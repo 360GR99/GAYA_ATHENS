@@ -37,6 +37,63 @@
             margin-bottom: 20px;
         }
 
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 4 / 3;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Lightbox με scaling */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        }
+
+
+        .lightbox:target {
+            display: flex;
+        }
+
+
+
         .info-map-container {
             display: flex;
             flex-direction: column;
@@ -45,7 +102,8 @@
             max-width: 900px;
         }
 
-        .store-info, .map-container {
+        .store-info,
+        .map-container {
             width: 100%;
             margin-top: 20px;
         }
@@ -57,7 +115,8 @@
             margin-top: 20px;
         }
 
-        .fa-facebook, .fa-instagram {
+        .fa-facebook,
+        .fa-instagram {
             font-size: 50px;
         }
 
@@ -96,8 +155,36 @@
 
     <main>
         <div class="tour-container">
-            <iframe src="https://kuula.co/share/collection/7bQcr?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
-                width="100%" height="500px" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://kuula.co/share/collection/714X2?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" width="100%"
+                height="500px" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="gallery">
+            <a href="#img1"><img src="images/chef-cooking-spaghetti-kitchen.jpg" alt=></a>
+            <a href="#img2"><img src="images/group-chefs-working-kitchen.jpg" alt=></a>
+            <a href="#img3"><img src="images/restaurant-interior (1).jpg" alt=></a>
+            <a href="#img4"><img src="images/restaurant-interior.jpg" alt=></a>
+            <a href="#img5"><img src="images/top-view-meals-tasty-yummy-different-pastries-dishes-brown-surface.jpg"
+                    alt=></a>
+            <!-- Πρόσθεσε όσες φωτογραφίες θέλεις -->
+        </div>
+
+        <!-- Lightbox modals -->
+        <div id="img1" class="lightbox">
+            <a href="#"><img src="images/chef-cooking-spaghetti-kitchen.jpg" alt="Gaya Athens 1"></a>
+        </div>
+        <div id="img2" class="lightbox">
+            <a href="#"><img src="images/group-chefs-working-kitchen.jpg" alt="Gaya Athens 2"></a>
+        </div>
+        <div id="img3" class="lightbox">
+            <a href="#"><img src="images/restaurant-interior (1).jpg" alt="Gaya Athens 3"></a>
+        </div>
+        <div id="img4" class="lightbox">
+            <a href="#"><img src="images/restaurant-interior.jpg" alt="Gaya Athens 3"></a>
+        </div>
+        <div id="img5" class="lightbox">
+            <a href="#"><img src="images/top-view-meals-tasty-yummy-different-pastries-dishes-brown-surface.jpg"
+                    alt="Gaya Athens 3"></a>
         </div>
 
         <div class="info-map-container">
@@ -106,13 +193,17 @@
                 <p>Καλαμιώτου 2, Αθήνα 10563</p>
                 <p>Τηλ: 210 324 9450</p>
                 <div class="social-menu">
-                    <a href="https://www.facebook.com/hoppercafe/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/hoppercafe/" target="_blank"><i
+                            class="fa-brands fa-facebook"></i></a>
                 </div>
             </div>
 
             <div class="map-container">
                 <h2>ΠΟΥ ΘΑ ΜΑΣ ΒΡΕΙΤΕ</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.025163167717!2d23.72642467602973!3d37.976542071935285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd7813c35435%3A0x1a59ac5532a19a4e!2sGAYA%20Athens!5e0!3m2!1sen!2sgr!4v1744402164662!5m2!1sen!2sgr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.025163167717!2d23.72642467602973!3d37.976542071935285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd7813c35435%3A0x1a59ac5532a19a4e!2sGAYA%20Athens!5e0!3m2!1sen!2sgr!4v1744402164662!5m2!1sen!2sgr"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </main>
